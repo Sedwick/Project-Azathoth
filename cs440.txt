@@ -1,0 +1,14 @@
+SELECT dept.did, dept.dname
+FROM dept, works
+WHERE dept.managerid = works.eid AND works.pct_time = 100
+
+SELECT ename, age
+FROM emp
+WHERE emp.eid = (
+SELECT w1.eid 
+FROM works w1, works w2, dept d1, dept d2
+WHERE w1.did = d1.did AND w2.did = d2.did AND d1.dname = 'Software' AND d2.dname = 'Hardware' AND w1.eid = w2.eid)
+
+SELECT ename, budget, salary, emp.eid
+FROM emp, works, dept
+WHERE works.eid = emp.eid AND works.did = dept.did AND emp.salary < dept.budget
