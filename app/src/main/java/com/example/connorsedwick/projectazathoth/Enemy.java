@@ -80,8 +80,8 @@ public class Enemy extends Encounter {
      *  Elite
      *  ...
      ************************/
-    public static void setAttributes(String attributes) {
-        Enemy.attributes.push(attributes);
+    public static void setAttributes(ArrayDeque<String> attributes) {
+        Enemy.attributes = attributes;
     }
 
     /*********************************************************************
